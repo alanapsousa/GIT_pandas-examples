@@ -18,7 +18,7 @@ ratings = pd.read_csv('dataSet/ratings.txt', engine='python',
                       sep='::', header=None, names=ratingHeader)
 
 # Merge data
-mergeRatings = pd.merge(pd.merge(users, ratings), movies)
+mergeData = pd.merge(pd.merge(users, ratings), movies)
 
 # Clone DataFrame
 
