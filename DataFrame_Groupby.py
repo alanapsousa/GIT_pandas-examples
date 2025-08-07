@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-__author__ = 'Elisée'
+__author__ = 'alana'
 
 import pandas as pd
 import numpy as np
@@ -9,7 +9,7 @@ userHeader = ['user_id', 'gender', 'age', 'ocupation', 'zip']
 users = pd.read_csv('dataSet/users.txt', engine='python',
                     sep='::', header=None, names=userHeader, encoding='ISO-8859-1')
 
-movieHeader = ['movie_id', 'title', 'genders']
+movieHeader = ['movie_id', 'title', 'genres']   #it was genders but i think it ment genres
 movies = pd.read_csv('dataSet/movies.txt', engine='python',
                      sep='::', header=None, names=movieHeader, encoding='ISO-8859-1')
 
@@ -26,7 +26,6 @@ mergeRatings = pd.merge(pd.merge(users, ratings), movies)
 def cloneDF(df):
     a = pd.DataFrame(df.values.copy(), df.index.copy(), df.columns.copy())
     return a.apply(pd.to_numeric, errors = 'ignore')
-
 
 # Show Films with more votes. (groupby + sorted)
 numberRatings = cloneDF(mergeRatings)
@@ -64,3 +63,9 @@ sortRatingsField = cloneDF(mergeRatings)
 sortRatingsField = sortRatingsField.groupby(['movie_id', 'title'])['rating'].agg(
     COUNT=np.size, myAVG=lambda x: x.sum() / float(x.count())).sorted('COUNT', ascending=False)
 print('My info sorted: \n%s' % sortRatingsField[:15])
+
+
+#### ajout par marie hahahaha
+df_sorted = cloneDF(mergeRatings).sort_values(['Group', 'Value'], ascending=[True, False])
+grouped = df_sorted.groupby('Group')
+
