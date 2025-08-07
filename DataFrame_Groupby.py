@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-__author__ = 'Alana'
+__author__ = 'alana'
 
 import pandas as pd
 import numpy as np
@@ -68,3 +68,4 @@ print('My info sorted: \n%s' % sortRatingsField[:15])
 #### ajout par marie hahahaha
 df_sorted = cloneDF(mergeRatings).sort_values(['Group', 'Value'], ascending=[True, False])
 grouped = df_sorted.groupby('Group')
+
