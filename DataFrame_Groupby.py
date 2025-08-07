@@ -9,7 +9,7 @@ userHeader = ['user_id', 'gender', 'age', 'ocupation', 'zip']
 users = pd.read_csv('dataSet/users.txt', engine='python',
                     sep='::', header=None, names=userHeader, encoding='ISO-8859-1')
 
-movieHeader = ['movie_id', 'title', 'genders']
+movieHeader = ['movie_id', 'title', 'genres']   #it was genders but i think it ment genres
 movies = pd.read_csv('dataSet/movies.txt', engine='python',
                      sep='::', header=None, names=movieHeader, encoding='ISO-8859-1')
 
